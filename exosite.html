@@ -1,0 +1,54 @@
+<script type="text/x-red" data-template-name="exosite">
+  <div class="form-row">
+    <label for="node-input-CIK"><i class="icon-lock"></i> <span data-i18n="exosite.cik"></span></label>
+    <input type="text" id="node-input-CIK" data-i18n="[placeholder]exosite.cik">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-topic"><i class="icon-tag"></i> <span data-i18n="exosite.topic"></span></label>
+    <input type="text" id="node-input-topic" data-i18n="[placeholder]exosite.topic">
+  </div>
+
+  <br/>
+
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> <span data-i18n="exosite.name"></span></label>
+    <input type="text" id="node-input-name" data-i18n="[placeholder]exosite.name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="exosite">
+  <font size="-2">Enables data collection from connected objects</font>
+   <h2><p>Exosite</p></h2>
+   <font size="-1"><p>Exosite has a very intuitive way of creating Dashboards from data.</p>
+   <p>A free Exosite account is necessary : http://exosite.com/</p></font>
+
+   <p><b>Node description :</b></p>
+   <font size="-1"><p>After the creation of the device and data store, this website allows to send and store data sent about this device.<br />
+   Outputs an object called <b>msg</b> containing a <b>topic</b> and a <b>payload</b>.</p></font>
+
+   <p><b>How to : </b></p>
+   <font size="-1"><p>- CIK : Token which is used to identified your device. You can find it on the device detail <br />
+   - topic : Name of the data store where saved the data of the device. The data store needs to be created on the device on their website.</p></font>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('exosite', {
+    category: 'storage-output',
+    color: "#fff",
+    defaults: {
+      name: {value: ""},
+      topic : {values: ""},
+      CIK: {value: ""}
+    },
+    inputs: 1,
+    outputs: 0,
+    icon: "exosite.png",
+    label: function() {
+      return this.name||this.topic||"exosite";
+    },
+    labelStyle: function() {
+      return this.name?"node_label_italic":"";
+    }
+  });
+</script>
