@@ -15,8 +15,8 @@ module.exports = function (RED) {
       body : `${topic}=${payload}`
     }, function(error, response, body) {
       if(error) {
-        console.log("\n[Exosite] Error sending data\n");
-			}
+        console.log("[Exosite] Error sending data");
+      }
     });
   }
 
